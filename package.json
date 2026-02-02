@@ -1,0 +1,29 @@
+{
+  "name": "vida-segura-formio",
+  "version": "1.0.0",
+  "description": "Form.io integration for Vida Segura insurance system",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "login": "node auth/login.js",
+    "create:forms": "node scripts/create-forms.js",
+    "test": "node test-forms.js",
+    "demo": "node demo.js",
+    "dev": "node demo.js"
+  },
+  "keywords": [
+    "formio",
+    "form",
+    "vida-segura",
+    "insurance"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@formio/js": "^5.3.0",
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

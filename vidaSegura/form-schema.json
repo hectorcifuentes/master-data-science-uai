@@ -1,0 +1,110 @@
+{
+  "title": "Formulario de Cliente - Vida Segura",
+  "name": "clienteForm",
+  "path": "cliente",
+  "type": "form",
+  "display": "form",
+  "components": [
+    {
+      "type": "textfield",
+      "key": "rut",
+      "label": "RUT",
+      "placeholder": "Ingrese RUT (ej: 12345678-9)",
+      "validate": {
+        "required": true,
+        "pattern": "^\\d{1,2}\\.?\\d{3}\\.?\\d{3}-[\\dkK]$"
+      }
+    },
+    {
+      "type": "textfield",
+      "key": "nombre",
+      "label": "Nombre",
+      "placeholder": "Ingrese nombre",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "type": "textfield",
+      "key": "apellidos",
+      "label": "Apellidos",
+      "placeholder": "Ingrese apellidos",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "type": "datetime",
+      "key": "fecha_nacimiento",
+      "label": "Fecha de Nacimiento",
+      "format": "yyyy-MM-dd",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "type": "select",
+      "key": "id_sexo",
+      "label": "Sexo",
+      "data": {
+        "values": [
+          { "value": "1", "label": "Masculino" },
+          { "value": "2", "label": "Femenino" },
+          { "value": "3", "label": "Otro" }
+        ]
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "type": "textarea",
+      "key": "direccion",
+      "label": "Dirección",
+      "placeholder": "Ingrese dirección completa",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "type": "phoneNumber",
+      "key": "telefono",
+      "label": "Teléfono",
+      "placeholder": "Ingrese número de teléfono",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "type": "email",
+      "key": "correo",
+      "label": "Correo Electrónico",
+      "placeholder": "Ingrese correo electrónico",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "type": "select",
+      "key": "id_estado_afiliacion",
+      "label": "Estado de Afiliación",
+      "data": {
+        "values": [
+          { "value": "1", "label": "Activo" },
+          { "value": "2", "label": "Inactivo" },
+          { "value": "3", "label": "Suspendido" }
+        ]
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "type": "button",
+      "key": "submit",
+      "label": "Registrar Cliente",
+      "action": "submit",
+      "theme": "primary"
+    }
+  ]
+}

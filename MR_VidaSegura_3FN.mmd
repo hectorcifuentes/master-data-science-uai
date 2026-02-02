@@ -1,0 +1,335 @@
+erDiagram
+    CLIENTE {
+        int id_cliente PK
+        string rut
+        string nombre
+        string apellidos
+        date fecha_nacimiento
+        int id_sexo FK
+        string direccion
+        string telefono
+        string correo
+        int id_estado_afiliacion
+        date fecha_registro
+    }
+
+    ESTADO_AFILIACION {
+        int id_estado_afiliacion PK
+        string descripcion
+    }
+    CONTRATO {
+        int id_contrato PK
+        int id_cliente
+        date fecha_inicio
+        date fecha_termino
+        int id_estado_contrato FK
+        float monto_pactado
+        int id_moneda FK
+        int id_ejecutivo FK
+        string observaciones
+    }
+    ESTADO_CONTRATO {
+        int id_estado_contrato PK
+        string descripcion
+    }
+    MONEDA {
+        int id_moneda PK
+        string descripcion
+        string simbolo
+    }
+    EJECUTIVO {
+        int id_ejecutivo PK
+        string nombre
+        string apellido
+        string contacto
+    }
+    PLAN_SALUD {
+        int id_plan PK
+        string nombre
+        float prima_mensual
+        date vigencia_inicio
+        date vigencia_termino
+        int id_estado_plan FK
+    }
+    ESTADO_PLAN {
+        int id_estado_plan PK
+        string descripcion
+    }
+    COBERTURA {
+        int id_cobertura PK
+        int id_tipo_cobertura FK
+        float valor
+    }
+    TIPO_COBERTURA {
+        int id_tipo_cobertura PK
+        string descripcion
+    }
+    PLAN_SALUD_COBERTURA {
+        int id_plan FK
+        int id_cobertura FK
+        %% PK compuesta: id_plan, id_cobertura
+    }
+    AFILIACION_PLAN {
+        int id_afiliacion PK
+        int id_contrato FK
+        int id_plan FK
+        date fecha_inicio
+        date fecha_termino
+        int id_estado_afiliacion_plan FK
+        float prima_aplicada
+        string observaciones
+    }
+    ESTADO_AFILIACION_PLAN {
+        int id_estado_afiliacion_plan PK
+        string descripcion
+    }
+    BENEFICIARIO {
+        int id_beneficiario PK
+        int id_contrato FK
+        string rut
+        string nombre
+        string apellidos
+        date fecha_nacimiento
+        int id_sexo FK
+        int id_parentesco FK
+        int id_estado_beneficiario FK
+        date fecha_inclusion
+        date fecha_exclusion
+    }
+    PARENTESCO {
+        int id_parentesco PK
+        string descripcion
+    }
+    ESTADO_BENEFICIARIO {
+        int id_estado_beneficiario PK
+        string descripcion
+    }
+    SEXO {
+        int id_sexo PK
+        string descripcion
+    }
+    PAGO {
+        int id_pago PK
+        int id_contrato
+        string numero_comprobante
+        date fecha
+        float monto
+        int id_moneda FK
+        int id_medio_pago FK
+        int id_estado_pago FK
+        string periodo_cubierto
+        date fecha_vencimiento
+    }
+    MEDIO_PAGO {
+        int id_medio_pago PK
+        string descripcion
+    }
+    ESTADO_PAGO {
+        int id_estado_pago PK
+        string descripcion
+    }
+    DESAFILIACION {
+        int id_desafiliacion PK
+        int id_cliente FK
+        date fecha_desafiliacion
+        int id_motivo_desafiliacion FK
+        string observaciones
+        int id_ejecutivo FK
+        date fecha_registro
+    }
+    MOTIVO_DESAFILIACION {
+        int id_motivo_desafiliacion PK
+        string descripcion
+    }
+    ATENCION_MEDICA {
+        int id_atencion PK
+        int id_beneficiario FK
+        int id_prestador FK
+        int id_profesional FK
+        datetime fecha_hora
+        int id_tipo_atencion FK
+        int id_estado_atencion_medica FK
+        float monto_total
+        string observaciones
+    }
+    TIPO_ATENCION {
+        int id_tipo_atencion PK
+        string descripcion
+    }
+    ESTADO_ATENCION_MEDICA {
+        int id_estado_atencion_medica PK
+        string descripcion
+    }
+    DIAGNOSTICO {
+        string id_diagnostico PK
+        string id_codigo_cie10 FK
+        string descripcion
+        int id_categoria_diagnostico FK
+        int id_gravedad_diagnostico FK
+    }
+    CATEGORIA_DIAGNOSTICO {
+        int id_categoria_diagnostico PK
+        string descripcion
+    }
+    GRAVEDAD_DIAGNOSTICO {
+        int id_gravedad_diagnostico PK
+        string descripcion
+    }
+    ATENCION_DIAGNOSTICO {
+        int id_atencion
+        string id_codigo_cie10 FK
+        int id_tipo_diagnostico FK
+        string observaciones
+        %% PK compuesta: id_atencion, id_codigo_cie10
+    }
+    TIPO_DIAGNOSTICO {
+        int id_tipo_diagnostico PK
+        string descripcion
+    }
+    CODIGO_CIE10 {
+        string id_codigo_cie10 PK
+        string descripcion
+    }
+    PRESTACION {
+        string codigo_prestacion PK
+        string descripcion
+        float costo_base
+        int id_tipo_prestacion FK
+        int id_estado_vigencia_prestacion FK
+    }
+    TIPO_PRESTACION {
+        int id_tipo_prestacion PK
+        string descripcion
+    }
+    ESTADO_VIGENCIA_PRESTACION {
+        int id_estado_vigencia_prestacion PK
+        string descripcion
+    }
+    ATENCION_PRESTACION {
+        int id_atencion
+        string id_codigo_prestacion FK
+        int cantidad
+        float monto_unitario
+        float monto_total
+        float bonificacion
+        float copago
+        float porcentaje_cobertura
+        %% PK compuesta: id_atencion, codigo_prestacion
+    }
+    PRESTADOR {
+        int id_prestador PK
+        string rut
+        string razon_social
+        string nombre_comercial
+        string direccion
+        int id_comuna FK
+        int id_ciudad FK
+        int id_region FK
+        string telefono
+        string correo
+        int id_tipo_establecimiento FK
+        int id_estado_vigencia_prestador FK
+    }
+    COMUNA {
+        int id_comuna PK
+        string descripcion
+    }
+    CIUDAD {
+        int id_ciudad PK
+        string descripcion
+    }
+    REGION {
+        int id_region PK
+        string descripcion
+    }
+    TIPO_ESTABLECIMIENTO {
+        int id_tipo_establecimiento PK
+        string descripcion
+    }
+    ESTADO_VIGENCIA_PRESTADOR {
+        int id_estado_vigencia_prestador PK
+        string descripcion
+    }
+    PROFESIONAL {
+        int id_profesional PK
+        string rut
+        string nombre
+        string apellidos
+        int id_especialidad FK
+        int id_subespecialidad FK
+        string numero_registro
+        string contacto
+        int id_estado_profesional FK
+    }
+    ESPECIALIDAD {
+        int id_especialidad PK
+        string descripcion
+    }
+    SUBESPECIALIDAD {
+        int id_subespecialidad PK
+        string descripcion
+    }
+    ESTADO_PROFESIONAL {
+        int id_estado_profesional PK
+        string descripcion
+    }
+    PRESTADOR_PROFESIONAL {
+        int id_prestador FK
+        int id_profesional FK
+        date fecha_inicio
+        date fecha_termino
+        int id_estado_profesional FK
+        string tipo_vinculacion
+        %% PK compuesta: id_prestador, id_profesional
+    }
+
+    %% Cardinalidades explícitas
+    CLIENTE ||--o{ CONTRATO : "1:N"
+    ESTADO_CONTRATO ||--o{ CONTRATO : "1:N"
+    MONEDA ||--o{ CONTRATO : "1:N"
+    EJECUTIVO ||--o{ CONTRATO : "1:N"
+    ESTADO_AFILIACION ||--o{ CLIENTE : "1:N"
+    CONTRATO ||--o{ AFILIACION_PLAN : "1:N"
+    ESTADO_AFILIACION_PLAN ||--o{ AFILIACION_PLAN : "1:N"
+    PLAN_SALUD ||--o{ AFILIACION_PLAN : "1:N"
+    ESTADO_PLAN ||--o{ PLAN_SALUD : "1:N"
+    PLAN_SALUD ||--o{ PLAN_SALUD_COBERTURA : "1:N"
+    TIPO_COBERTURA ||--o{ COBERTURA : "1:N"
+    COBERTURA ||--o{ PLAN_SALUD_COBERTURA : "1:N"
+    CONTRATO ||--o{ BENEFICIARIO : "1:N"
+    SEXO ||--o{ CLIENTE : "1:N"
+    SEXO ||--o{ BENEFICIARIO : "1:N"
+    PARENTESCO ||--o{ BENEFICIARIO : "1:N"
+    ESTADO_BENEFICIARIO ||--o{ BENEFICIARIO : "1:N"
+    CONTRATO ||--o{ PAGO : "1:N"
+    MONEDA ||--o{ PAGO : "1:N"
+    MEDIO_PAGO ||--o{ PAGO : "1:N"
+    ESTADO_PAGO ||--o{ PAGO : "1:N"
+    CONTRATO ||--|{ DESAFILIACION : "1:0..1"
+    MOTIVO_DESAFILIACION ||--o{ DESAFILIACION : "1:N"
+    EJECUTIVO ||--o{ DESAFILIACION : "1:N"
+    BENEFICIARIO ||--o{ ATENCION_MEDICA : "1:N"
+    TIPO_ATENCION ||--o{ ATENCION_MEDICA : "1:N"
+    ESTADO_ATENCION_MEDICA ||--o{ ATENCION_MEDICA : "1:N"
+    ATENCION_MEDICA ||--o{ ATENCION_DIAGNOSTICO : "1:N"
+    CATEGORIA_DIAGNOSTICO ||--o{ DIAGNOSTICO : "1:N"
+    GRAVEDAD_DIAGNOSTICO ||--o{ DIAGNOSTICO : "1:N"
+    DIAGNOSTICO ||--o{ ATENCION_DIAGNOSTICO : "1:N"
+    TIPO_DIAGNOSTICO ||--o{ ATENCION_DIAGNOSTICO : "1:N"
+    ATENCION_MEDICA ||--o{ ATENCION_PRESTACION : "1:N"
+    TIPO_PRESTACION ||--o{ PRESTACION : "1:N"
+    ESTADO_VIGENCIA_PRESTACION ||--o{ PRESTACION : "1:N"
+    PRESTACION ||--o{ ATENCION_PRESTACION : "1:N"
+    ATENCION_MEDICA }o--|| PRESTADOR : "N:1"
+    ATENCION_MEDICA }o--|| PROFESIONAL : "N:1"
+    COMUNA ||--o{ PRESTADOR : "1:N"
+    CIUDAD ||--o{ PRESTADOR : "1:N"
+    REGION ||--o{ PRESTADOR : "1:N"
+    TIPO_ESTABLECIMIENTO ||--o{ PRESTADOR : "1:N"
+    ESTADO_VIGENCIA_PRESTADOR ||--o{ PRESTADOR : "1:N"
+    PRESTADOR ||--o{ PRESTADOR_PROFESIONAL : "1:N"
+    ESPECIALIDAD ||--o{ PROFESIONAL : "1:N"
+    SUBESPECIALIDAD ||--o{ PROFESIONAL : "1:N"
+    ESTADO_PROFESIONAL ||--o{ PROFESIONAL : "1:N"
+    ESTADO_PROFESIONAL ||--o{ PRESTADOR_PROFESIONAL : "1:N"
+    PROFESIONAL ||--o{ PRESTADOR_PROFESIONAL : "1:N"
