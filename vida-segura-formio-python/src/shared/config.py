@@ -6,7 +6,11 @@ Variables de entorno y constantes globales
 import os
 
 class FORMIO_CONFIG:
-    """Configuración centralizada para Form.io"""
+    """Configuración centralizada para Form.io
+    
+    Antes de ejecutar el login o crear formularios, debes crear tu propio usuario y contraseña en Form.io.
+    Luego, añade tu email y contraseña aquí, reemplazando los valores dummy, o usa variables de entorno.
+    """
     BASE_URL = os.getenv('FORMIO_BASE_URL', 'https://dummy.form.io')
     API_KEY = os.getenv('FORMIO_API_KEY', 'DUMMY_API_KEY')
     USER_EMAIL = os.getenv('FORMIO_EMAIL', 'dummy@email.com')

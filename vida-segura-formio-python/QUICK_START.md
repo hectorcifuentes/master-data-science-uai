@@ -3,7 +3,8 @@
 ## Quick Start
 
 ```bash
-# Install dependencies
+## Antes de ejecutar el login o crear formularios, debes crear tu propio usuario y contraseña en Form.io.
+## Luego, añade tu email y contraseña en los archivos de configuración correspondientes (por ejemplo, src/shared/config.py), reemplazando los valores dummy.
 pip install -r requirements.txt
 
 # Run demo
