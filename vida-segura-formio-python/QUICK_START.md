@@ -29,14 +29,14 @@ Clean Architecture with 4 layers:
 
 ## Form IDs (11 registered)
 
-- Cliente: 697ebba1cd4b046138f5e4ee
-- Contrato: 697ebf91db796af904668b44
-- Plan Salud: 697ec2d5cd4b046138f602bd
-- Beneficiario: 697ec50acd4b046138f61017
-- Atención Médica: 697ec966db796af90466bbcc
-- Diagnóstico: 697eca2acd4b046138f627d6
-- Prestación: 697eca2acd4b046138f627df
-- Prestador: 697eca2adb796af90466c05f
-- Profesional: 697eca2acd4b046138f627ea
-- Cobertura: 697eca2adb796af90466c05c
-- Pago: 697eca2acd4b046138f627e7
+- Cliente: dummy_cliente_id
+- Contrato: dummy_contrato_id
+- Plan Salud: dummy_plan_salud_id
+- Beneficiario: dummy_beneficiario_id
+- Atención Médica: dummy_atencion_medica_id
+- Diagnóstico: dummy_diagnostico_id
+- Prestación: dummy_prestacion_id
+- Prestador: dummy_prestador_id
+- Profesional: dummy_profesional_id
+- Cobertura: dummy_cobertura_id
+- Pago: dummy_pago_id
