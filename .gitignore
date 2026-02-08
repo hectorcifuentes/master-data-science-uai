@@ -35,3 +35,4 @@ build/
 # Old files
 formularios/
 *.old.js
+demo.js
