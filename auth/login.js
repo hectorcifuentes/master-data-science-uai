@@ -6,6 +6,7 @@
 import { logger } from '../vidaSegura/src/shared/logger.js';
 import { FORMIO_CONFIG } from '../vidaSegura/src/shared/config.js';
 
+
 async function main() {
     try {
         logger.section('Form.io Authentication');
